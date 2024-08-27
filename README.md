@@ -196,6 +196,6 @@ If you find this code useful for your research, please cite our paper:
 
 Some code is borrowed from [Mammoth](https://github.com/aimagelab/mammoth), [VQ-Diffusion](https://github.com/microsoft/VQ-Diffusion). We thank the authors for releasing their code.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=richiben93/LRVQ&type=Date)](https://github.com/richiben93/LRVQ)
+[![Star History Chart](https://api.star-history.com/svg?repos=aimagelab/LRVQ&type=Date)](https://github.com/aimagelab/LRVQ)
 
 **TODO list**:
