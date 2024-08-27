@@ -1,0 +1,224 @@
+
+experiments:
+### VQVAE
+
+#  sdd_vqvae:
+#    alpha_embedding_annealing: "cos_anneal step 0 3000 0 1"
+#    backbone: vqvae
+#    batch_size: 256
+#    d_model: 64
+#    dataset: sdd
+#    eval_batch_size: 256
+#    generated_samples: 1
+#    k_way: 16
+#    lr: 0.0005
+#    lr_decay: 0.6
+#    lr_decay_steps: "1500,3000,4000"
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 7000
+#    n_layers: 1
+#    n_workers: 2
+#    lora_alpha_annealing: "cos_anneal step 50000 100000 0 1"
+#    lora_r: 8
+#    opt_betas: "(0.5,0.9)"
+#    optimizer: AdamW
+#    project_codebook_dim: 8
+#    save_checks: True
+#    scheduler: multistep
+#    use_saved_pixelcnn: True
+#    vq_module: VariationalQuantizationLora
+#    wandb: True
+#    default_argument: []
+#    wb_prj: "tragen-icpr"
+#
+#
+#  nba_vqvae:
+#    alpha_embedding_annealing: "cos_anneal step 0 3000 0 1"
+#    backbone: vqvae
+#    batch_size: 64
+#    d_model: 64
+#    dataset: nba
+#    eval_batch_size: 64
+#    generated_samples: 1
+#    k_way: 16
+#    lr: 0.0005
+#    lr_decay: 0.6
+#    lr_decay_steps: "500,600,650"
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 700
+#    n_layers: 1
+#    n_workers: 2
+#    lora_alpha_annealing: "cos_anneal step 50000 100000 0 1"
+#    lora_r: 8
+#    opt_betas: "(0.5,0.9)"
+#    optimizer: AdamW
+#    project_codebook_dim: 8
+#    save_checks: True
+#    scheduler: multistep
+#    use_saved_pixelcnn: True
+#    vq_module: VariationalQuantizationLora
+#    wandb: True
+#    save_every: 50
+#    validate_every: 50
+#    default_argument: []
+#    wb_prj: "tragen-icpr"
+#
+#  nfl_vqvae:
+#    alpha_embedding_annealing: "cos_anneal step 0 3000 0 1"
+#    backbone: vqvae
+#    batch_size: 32
+#    d_model: 32
+#    dataset: nfl
+#    dataset_name: 20240210142434
+#    eval_batch_size: 32
+#    generated_samples: 1
+#    k_way: 16
+#    lr: 0.0005
+#    lr_decay: 0.6
+#    lr_decay_steps: "500,600,650"
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 700
+#    n_layers: 1
+#    n_workers: 2
+#    lora_alpha_annealing: "cos_anneal step 50000 100000 0 1"
+#    lora_r: 4
+#    opt_betas: "(0.5,0.9)"
+#    optimizer: AdamW
+#    project_codebook_dim: 8
+#    save_checks: True
+#    scheduler: multistep
+#    use_saved_pixelcnn: True
+#    vq_module: VariationalQuantizationLora
+#    wandb: True
+#    save_every: 50
+#    validate_every: 50
+#    default_argument: []
+#    wb_prj: "tragen-icpr"
+
+### DIFFUSION
+
+#  sdd_diffusion:
+#    args_to_update: 'pixelcnn_scheduler_name validate_every save_every batch_size save_checks use_saved_pixelcnn reinit_wandb set_device wandb_postfix wandb only_eval custom_pixelcnn pixelcnn_opt pixelcnn_n_epochs pixelcnn pixelcnn_lr pixelcnn_n_layers diff_diffusion_step use_saved_pixelcnn wb_prj n_workers job_id rotate_trj_pixelcnn'
+#    backbone: vqvae
+#    batch_size: 256
+#    checkpoint_path: [
+#      '/nas/softechict-nas-1/rbenaglia/data/results/sdd/scratchtrajectory_vqvae/2410037/checkpoint_best.pth'
+#    ]
+#    custom_pixelcnn: True
+#    dataset: sdd
+#    diff_diffusion_step: 100
+#    eval_batch_size: 256
+#    generated_samples: 20
+#    lr: 0.0005
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 1
+#    n_workers: 2
+#    only_eval: True
+#    pixelcnn: PixelDiffusionTransformer
+#    pixelcnn_categorical_temporal_dim: False
+#    pixelcnn_lr: 1e-3
+#    pixelcnn_n_epochs: 3000
+#    pixelcnn_n_layers: 1
+#    pixelcnn_opt: adamw
+#    pixelcnn_scheduler_name: multistep2
+#    reinit_wandb: True
+#    rotate_trj_pixelcnn: True
+#    save_checks: True
+#    save_every: 50
+#    use_saved_pixelcnn: False
+#    validate_every: 50
+#    wandb: True
+#    wb_prj: "tragen-icpr"
+#    default_argument: []
+#
+#  nba_diffusion:
+#    args_to_update: 'batch_size save_checks use_saved_pixelcnn reinit_wandb set_device wandb_postfix wandb only_eval custom_pixelcnn pixelcnn_opt pixelcnn_n_epochs pixelcnn pixelcnn_lr pixelcnn_n_layers diff_diffusion_step use_saved_pixelcnn n_workers job_id validate_every save_every random_rotation_degrees'
+#    backbone: vqvae
+#    batch_size: 64
+#    checkpoint_path: [
+#      '/nas/softechict-nas-1/rbenaglia/data/results/nba/scratchtrajectory_vqvae/2410038/checkpoint_best.pth'
+#    ]
+#    custom_pixelcnn: True
+#    dataset: nba
+#    diff_diffusion_step: 100
+#    eval_batch_size: 64
+#    generated_samples: 20
+#    lr: 0.0005
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 1
+#    n_workers: 2
+#    only_eval: True
+#    pixelcnn: PixelDiffusionTransformer
+#    pixelcnn_categorical_temporal_dim: False
+#    pixelcnn_lr: 0.0005
+#    pixelcnn_n_epochs: 1000
+#    pixelcnn_n_layers: 1
+#    pixelcnn_opt: adamw
+#    random_rotation_degrees: 5
+#    reinit_wandb: True
+#    rotate_trj_pixelcnn: True
+#    save_checks: True
+#    save_every: 70
+#    use_saved_pixelcnn: False
+#    validate_every: 70
+#    wandb: True
+#    wb_prj: "tragen-icpr"
+#    default_argument: []
+#
+#  nfl_diffusion:
+#    args_to_update: "batch_size save_checks use_saved_pixelcnn reinit_wandb set_device wandb_postfix wandb only_eval custom_pixelcnn pixelcnn_opt pixelcnn_n_epochs pixelcnn pixelcnn_lr pixelcnn_n_layers diff_diffusion_step use_saved_pixelcnn n_workers job_id random_rotation_degrees validate_every save_every"
+#    backbone: vqvae
+#    batch_size: 32
+#    checkpoint_path: '/nas/softechict-nas-1/rbenaglia/data/results/nfl/scratchtrajectory_vqvae/2410036/checkpoint_best.pth'
+#    custom_pixelcnn: True
+#    dataset: nfl
+#    diff_diffusion_step: 100
+#    eval_batch_size: 32
+#    generated_samples: 20
+#    lr: 0.0005
+#    model: scratchtrajectory_vqvae
+#    n_epochs: 1000
+#    n_workers: 2
+#    only_eval: True
+#    pixelcnn: PixelDiffusionTransformer
+#    pixelcnn_lr: 0.0005
+#    pixelcnn_n_epochs: 700
+#    pixelcnn_n_layers: 1
+#    pixelcnn_opt: adamw
+#    random_rotation_degrees: 5
+#    reinit_wandb: True
+#    save_checks: True
+#    save_every: 100
+#    use_saved_pixelcnn: False
+#    validate_every: 100
+#    wandb: True
+#    wb_prj: "tragen-icpr"
+#    default_argument: []
+
+### EVALUATION
+  sdd_test_generation:
+    args_to_update: "batch_size eval_batch_size save_checks use_saved_pixelcnn reinit_wandb set_device wandb_postfix wandb only_eval custom_pixelcnn use_saved_pixelcnn generated_samples reduce_sampling_method n_reduced_samples"
+    backbone: vqvae
+    batch_size: 32
+    checkpoint_path: '/nas/softechict-nas-1/rbenaglia/data/results/sdd/scratchtrajectory_vqvae/2410492/checkpoint_best_pixel.pth'
+    custom_pixelcnn: False
+    dataset: sdd
+    eval_batch_size: 200
+    generated_samples: 200
+    lr: 0.0005
+    model: scratchtrajectory_vqvae
+    n_epochs: 1
+    n_reduced_samples: 20
+    only_eval: True
+    reduce_sampling_method: method:kmeans
+    reinit_wandb: True
+    save_checks: False
+    use_saved_pixelcnn: True
+    wandb: True
+    default_argument: []
+
+
+
+
+
+

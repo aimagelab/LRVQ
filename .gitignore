@@ -1,0 +1,7 @@
+.idea
+.vscode
+*.pyc
+*.log
+wandb
+results
+data
